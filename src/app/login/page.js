@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { auth, db } from "/src/firebase.js";
 import {
   signInWithEmailAndPassword,
@@ -10,6 +11,7 @@ import {
 import { doc, setDoc } from "firebase/firestore";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [erro, setErro] = useState("");
@@ -90,6 +92,16 @@ export default function LoginPage() {
           >
             Entrar com Google
           </button>
+
+          <p className="text-gray-700 mt-4">
+            Ainda não tem conta?{" "}
+            <button
+              onClick={() => router.push("/signup")}
+              className="text-blue-500 hover:underline font-medium"
+            >
+              Cadastre-se
+            </button>
+          </p>
         </div>
       </div>
     </div>

@@ -1,7 +1,26 @@
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "/src/firebase.js";
+
 export default function Home() {
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-gray-900 text-white">
-      <h1 className="text-2xl font-bold">Você está logado!</h1>
-    </main>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Se estiver logado, manda para dashboard
+        router.push("/dashboard");
+      } else {
+        // Se não estiver logado, manda para login
+        router.push("/login");
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  return null; // Enquanto redireciona, não renderiza nada
 }
