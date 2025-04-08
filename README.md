@@ -3,8 +3,7 @@
 
 Projeto desenvolvido como parte de um projeto de extensão do curso de Ciência da Computação do IBMR – 3º período.
 
-**Autor**: [Seu Nome]  
-**Orientadora**: Prof.ª Sylvana  
+**Autor**: Richard Lopes Strougo 
 **Faculdade**: IBMR  
 
 ---
