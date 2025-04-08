@@ -1,3 +1,59 @@
+# Integra Biblio 📚  
+### Sistema de Autenticação com Firebase, Next.js e Tailwind CSS
+
+Projeto desenvolvido como parte de um projeto de extensão do curso de Ciência da Computação do IBMR – 3º período.
+
+**Autor**: [Seu Nome]  
+**Orientadora**: Prof.ª Sylvana  
+**Faculdade**: IBMR  
+
+---
+
+## 📌 Sumário
+
+- [Introdução](#introdução)
+- [Objetivos](#objetivos)
+- [Justificativa](#justificativa)
+- [Fundamentação Teórica](#fundamentação-teórica)
+- [Desenvolvimento](#desenvolvimento)
+  - [Criação do Projeto](#criação-do-projeto)
+  - [Instalação do Tailwind CSS](#instalação-do-tailwind-css)
+  - [Configuração do Firebase](#configuração-do-firebase)
+  - [Criação das Páginas](#criação-das-páginas)
+- [Fluxograma do Sistema](#fluxograma-do-sistema)
+- [Considerações Finais](#considerações-finais)
+
+---
+
+## 📘 Introdução
+
+O Integra Biblio é um sistema simples de autenticação de usuários utilizando Next.js e Firebase. Ele oferece uma tela de login e cadastro funcional, com autenticação via e-mail/senha e login com Google.
+
+---
+
+## 🎯 Objetivos
+
+- Aplicar conhecimentos de Next.js, Tailwind CSS e Firebase.
+- Criar uma interface simples e funcional.
+- Desenvolver um sistema real voltado para projetos de extensão acadêmica.
+
+---
+
+## 🧠 Justificativa
+
+O projeto serve como base para sistemas educacionais que precisem de controle de acesso e autenticação de usuários, fornecendo uma fundação sólida e moderna.
+
+---
+
+## 🧱 Fundamentação Teórica
+
+- **Next.js**: framework baseado em React, que permite SSR e rotas otimizadas.
+- **Tailwind CSS**: framework utilitário para estilização rápida e responsiva.
+- **Firebase**: plataforma do Google que oferece autenticação, banco de dados, hospedagem e outros serviços.
+
+---
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
