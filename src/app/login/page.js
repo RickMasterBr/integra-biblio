@@ -9,6 +9,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import Link from "next/link"; // Recuperação de Senha
 
 export default function LoginPage() {
   const router = useRouter();
@@ -97,10 +98,21 @@ export default function LoginPage() {
             Ainda não tem conta?{" "}
             <button
               onClick={() => router.push("/signup")}
-              className="text-blue-500 hover:underline font-medium"
+              className="text-blue-600 hover:underline font-medium"
             >
               Cadastre-se
             </button>
+          </p>
+        </div>
+        <div className="mt-4 text-center">
+          <p className="text-gray-700 mt-4">
+            Esqueceu sua senha?{" "}
+            <Link
+              href="/reset-password"
+              className="text-blue-600 hover:underline font-medium"
+            >
+              Redefinir
+            </Link>
           </p>
         </div>
       </div>

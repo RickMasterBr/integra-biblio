@@ -8,6 +8,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import Link from "next/link"; // Importa o Link do Next.js
 
 export default function SignUpPage() {
   const [name, setName] = useState("");
@@ -113,6 +114,14 @@ export default function SignUpPage() {
           >
             Criar com Google
           </button>
+        </div>
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-700">
+            Já tem uma conta?{" "}
+            <Link href="/login" className="text-blue-600 hover:underline">
+              Faça login
+            </Link>
+          </p>
         </div>
       </div>
     </div>
