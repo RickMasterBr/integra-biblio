@@ -14,7 +14,7 @@ export default function AuthRedirector() {
       const isAuthPage = pathname === "/login" || pathname === "/signup";
 
       if (user && isAuthPage) {
-        router.push("/dashboard");
+        router.push("/pagina-inicial"); // Redireciona para a página inicial se o usuário estiver logado
       }
     });
 

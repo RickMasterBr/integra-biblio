@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { auth, db } from "/src/firebase.js";
+import { auth, db } from "@/firebase"; // use alias se possível
 import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import Link from "next/link"; // Recuperação de Senha
+import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -20,9 +20,19 @@ export default function LoginPage() {
   const handleEmailLogin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      console.log("Login com e-mail/senha realizado!");
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log("Login com e-mail/senha realizado!", userCredential.user);
+
       setErro("");
+
+      // Espera o Firebase propagar o login
+      setTimeout(() => {
+        window.location.href = "/pagina-inicial"; // pode usar router.push se preferir
+      }, 1000);
     } catch (err) {
       console.error("Erro no login:", err.message);
       setErro("E-mail ou senha inválidos.");
@@ -35,7 +45,6 @@ export default function LoginPage() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      // Salvar no Firestore
       await setDoc(doc(db, "usuarios", user.uid), {
         nome: user.displayName,
         email: user.email,
@@ -45,6 +54,10 @@ export default function LoginPage() {
 
       console.log("Login com Google e usuário salvo!");
       setErro("");
+
+      setTimeout(() => {
+        window.location.href = "/pagina-inicial";
+      }, 1000);
     } catch (err) {
       console.error("Erro no login com Google:", err.message);
       setErro("Erro ao autenticar com Google.");
