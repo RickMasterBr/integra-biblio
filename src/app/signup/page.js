@@ -26,7 +26,6 @@ export default function SignUpPage() {
       );
       const user = userCredential.user;
 
-      // Salvar no Firestore
       await setDoc(doc(db, "usuarios", user.uid), {
         nome: name,
         email: user.email,
@@ -35,6 +34,11 @@ export default function SignUpPage() {
 
       console.log("Usuário criado com sucesso!");
       setErro("");
+
+      // ✅ Redirecionar após cadastro
+      setTimeout(() => {
+        window.location.href = "/pagina-inicial"; // ou "/pagina-inicial" se quiser logar direto
+      }, 1000);
     } catch (err) {
       console.error("Erro ao criar conta:", err.message);
       setErro("Erro ao criar conta. Verifique os dados.");
@@ -56,6 +60,11 @@ export default function SignUpPage() {
 
       console.log("Conta criada com Google e usuário salvo!");
       setErro("");
+
+      // ✅ Redirecionar para a home após criação com Google
+      setTimeout(() => {
+        window.location.href = "/pagina-inicial";
+      }, 1000);
     } catch (err) {
       console.error("Erro com Google:", err.message);
       setErro("Erro ao criar conta com Google.");
