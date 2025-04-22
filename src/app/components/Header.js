@@ -19,7 +19,8 @@ export default function Header() {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      window.location.href = "/login"; // redireciona ao encerrar sessão
+      localStorage.clear(); // limpa qualquer estado local
+      window.location.href = "/login"; // redireciona completamente
     } catch (err) {
       console.error("Erro ao sair:", err.message);
       alert("Erro ao sair. Tente novamente.");
